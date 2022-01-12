@@ -1,0 +1,239 @@
+
+\documentclass[8.1pt,twoside=semi,openright,numbers=noenddot]{scrartcl}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{textcomp}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{geometry}
+\usepackage[normalem]{ulem}
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{multirow}
+\usepackage{prerex}
+\usepackage{marginnote}
+\usepackage{sidenotes}
+
+\usepackage[headsepline]{scrlayer-scrpage}
+\renewcommand{\headfont}{}
+\addtolength{\textheight}{3.14cm}
+\setlength{\footskip}{0.5in}
+\setlength{\headsep}{10pt}
+
+
+\automark[section]{section}
+
+
+\rohead{\footnotesize\thepage}
+\rehead{\footnotesize \textbf{\sffamily MAT 5192}, Hanan Ather}
+% More script letters etc.
+\newcommand{\SA}{\mathcal A}
+\newcommand{\SB}{\mathcal B}
+\newcommand{\SC}{\mathcal C}
+\newcommand{\SD}{\mathcal D}
+\newcommand{\SH}{\mathcal H}
+\newcommand{\SX}{\mathcal X}
+\newcommand{\SY}{\mathcal Y}
+\newcommand{\iid}{\text{ i.i.d.}}
+
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={green!50!black},
+    urlcolor={blue!80!black}
+}
+
+\renewcommand*{\marginfont}{\color{red}\sffamily}
+
+
+\newcommand{\CC}{\mathbb C}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\VV}{\mathbb V}
+
+\newcommand{\ZZ}{\mathbb Z}
+
+
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\dang}{\measuredangle} %% Directed angle
+\newcommand{\ray}[1]{\overrightarrow{#1}} 
+\newcommand{\seg}[1]{\overline{#1}}
+\newcommand{\arc}[1]{\wideparen{#1}}
+
+\newcommand{\vocab}[1]{\textbf{\color{blue} #1}}
+
+
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+
+\usepackage[headsepline]{scrlayer-scrpage}
+\definecolor{crimsonglory}{rgb}{0.75, 0.0, 0.2}
+\definecolor{denim}{rgb}{0.08, 0.38, 0.74}
+\definecolor{egyptianblue}{rgb}{0.06, 0.2, 0.65}
+\definecolor{lava}{rgb}{0.81, 0.06, 0.13}
+
+\renewcommand*{\sectionformat}{\color{lava}\S\thesection\autodot\enskip}
+\renewcommand*{\subsectionformat}{\color{Blue} \S\thesubsection\autodot\enskip}
+
+
+\addtokomafont{partprefix}{\rmfamily}
+
+
+
+\theoremstyle{definition}
+\mdfdefinestyle{mdbluebox}{%
+	roundcorner = 10pt,
+	linewidth=1pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	nobreak=true,
+	linecolor=blue,
+	backgroundcolor=TealBlue!5,
+}
+\declaretheoremstyle[
+	headfont=\sffamily\bfseries\color{MidnightBlue},
+	mdframed={style=mdbluebox},
+	headpunct={\\[3pt]},
+	postheadspace={0pt}
+]{thmbluebox}
+
+
+\mdfdefinestyle{mdredbox}{%
+	linewidth=0.5pt,
+	skipabove=12pt,
+	frametitleaboveskip=5pt,
+	frametitlebelowskip=0pt,
+	skipbelow=2pt,
+	frametitlefont=\bfseries,
+	innertopmargin=4pt,
+	innerbottommargin=8pt,
+	nobreak=true,
+	linecolor=RawSienna,
+	backgroundcolor=Salmon!5,
+}
+\declaretheoremstyle[
+	headfont=\bfseries\color{RawSienna},
+	mdframed={style=mdredbox},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{thmredbox}
+
+\mdfdefinestyle{mdgreenbox}{%
+	skipabove=8pt,
+	linewidth=2pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=ForestGreen,
+	backgroundcolor=ForestGreen!5,
+}
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+	bodyfont=\normalfont,
+	spaceabove=2pt,
+	spacebelow=1pt,
+	mdframed={style=mdgreenbox},
+	headpunct={ --- },
+]{thmgreenbox}
+\declaretheoremstyle[
+	headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+	bodyfont=\normalfont,
+	spaceabove=2pt,
+	spacebelow=1pt,
+	mdframed={style=mdgreenbox},
+	headpunct={},
+]{thmgreenbox*}
+
+\mdfdefinestyle{mdblackbox}{%
+	skipabove=8pt,
+	linewidth=3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linecolor=black,
+	backgroundcolor=RedViolet!5!gray!5,
+}
+\declaretheoremstyle[
+	headfont=\bfseries,
+	bodyfont=\normalfont\small,
+	spaceabove=0pt,
+	spacebelow=0pt,
+	mdframed={style=mdblackbox}
+]{thmblackbox}
+
+
+
+
+
+
+\declaretheorem[%
+style=thmgreenbox*,name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem]{lemma}
+\declaretheorem[style=thmblackbox,name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[style=thmbluebox,name=Corollary,sibling=theorem]{corollary}
+\declaretheorem[style=thmgreenbox,name=Example,sibling=theorem]{example}
+\declaretheorem[style=thmredbox,name=Definition,sibling=theorem]{definition}
+
+\newenvironment{moral}{%
+	\begin{mdframed}[linecolor=green!70!black]%
+	\bfseries\color{green!50!black}}%
+	{\end{mdframed}}
+
+\newenvironment{fact}{%
+	\begin{mdframed}[linecolor=black]}%
+	{\end{mdframed}}
+
+\newenvironment{question}{%
+	\begin{mdframed}[linecolor=red!70!black]%
+	\bfseries\color{RawSienna}%
+	\color{black} \textbf{Question:}} 
+	{\end{mdframed}}
+
+
+\declaretheoremstyle[
+	headfont=\bfseries\color{RawSienna},
+	mdframed={style=mdredbox},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{thmredbox}
+
+
+\subject{Sampling Theory and Methods}
+\title{MAT 5192 Lecture Notes}
+\subtitle{University of Ottawa}
+\author{Hanan Ather}
+\date{Winter 2022}
+
+
+
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\input{chapter1/section1}
+\input{chapter1/section2}
+\end{document}
