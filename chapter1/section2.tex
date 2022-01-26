@@ -1,1 +1,35 @@
-\section{September 13, 2021}
+\section{January 13, 2022}
+\subsection{Neyman-Pearson Fundamental Lemma}
+
+\begin{definition}[Uniformly most powerful test]
+    A level $\alpha$ test which maximizes power among all tests of level $\alpha$ is said to be  \vocab{uniformly most powerful (UMP)} level $\alpha$ test. Thus, $\phi$ is UMP level $\alpha$ test if:
+    \begin{enumerate}[(i)]
+        \item $\underset{\theta \in \Theta_{0}}{\text{sup }} \beta_{\phi}(\theta) = \alpha$
+        \item for any other test $\phi^*$ which satisfies (i) has $\beta_{\phi}(\theta) \geq \beta_{\phi^*}(\theta)$  $\forall \theta \in \Theta_{1} $ 
+        
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[The Neyman-Pearson Fundamental Lemma]
+Let $\boldsymbol{X} = (X_1,...,X_n)$ be a random sample from a probability distribution $\boldsymbol{P_{\theta}}$ with pdf/pmf $f(x;\theta)$, $\theta \in \Theta = \{\theta_0, \theta_1\}$. Suppose that we are interested in testing two simple hypothesis 
+$
+H_0: \theta = \theta_0 \text{ vs. } H_1:\theta = \theta_1
+$
+at level $\alpha$.
+\begin{enumerate}[(a)]
+    \item For testing $H_0$ versus $H_1$ there exists a test $\phi$ and a constant $k$ such that 
+    \begin{equation}
+        \EE_{\theta_{0}}\phi(\boldsymbol{X}) = \alpha
+    \end{equation}
+    and
+    \begin{equation}
+    \phi(\boldsymbol{X}) = 
+    \begin{cases}
+     0 \quad& if $ f(\boldsymbol{x};\theta_1) > kf(\boldsymbol{x};\theta_0) $ \\
+    1 & if $ f(\boldsymbol{x};\theta_1) < kf(\boldsymbol{x};\theta_0) $
+    \end{cases}
+    \end{equation}
+    \item If a test satisfies (1) and (2) for some $k$, then it is a UMP level $\alpha$ test. 
+    \item If $\phi$ is the most powerful at level $alpha$ for testing $H_0$ versus $H_1$, then for some $k$ it satisfies (4). It also satisfies (3) unless there exists a test of size $< \alpha$ with power 1.
+\end{enumerate}
+\end{theorem}

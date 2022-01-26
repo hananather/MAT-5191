@@ -1,0 +1,46 @@
+\section{January 18, 2022}
+\subsection{Examples of MP test}
+\begin{example}
+Let $X_1,..,X_n$ be a random sample from normal $N(\mu, \sigma^2)$ distribution, where $\mu$ is unknown and $\sigma^2$ is known. If we test
+$$
+H_0: \mu = 0  \text{ vs. } H_1:\mu = \mu_0
+$$ for some $\mu_0>0$. The likelihood ratio is equal to 
+$$
+\frac{f(\boldsymbol{x};\mu_0)}{f(\boldsymbol{x};0} = \frac{exp(\frac{1}{-2 \sigma^2}\sum_{i=1}^{n}(x_i - \mu_0)^2)}{exp(\frac{1}{-2\sigma^2}\sum_{i=1}^{n}x_i^{2})}
+$$
+From this and Theorem 2.2, the critical region 
+$ \left\{ 
+\boldsymbol{x}: \frac{f(\boldsymbol{x};\mu_0)}{f(\boldsymbol{x};0} > k
+\right \}$ of the most powerful level $\alpha$ test is equivalent to the region 
+$ \left\{ 
+\boldsymbol{x}: \sum_{i=1}^{n}x_i > k'
+\right \}$,
+where the constant $k'$ satisfies the level $\alpha$ constraint,
+$$
+\PP_{H_0} \left( 
+\sum_{i=1}^{n}X_i \geq k' = \alpha
+\right)
+$$
+We note that under $H_0$, $\sum_{i=1}^{n}X_i \sim N(0,n\sigma^2)$,
+$$
+\PP_{H_0} \left(
+N(0,1) \geq \frac{k'}{\sigma \sqrt{n}}
+\right) = \alpha
+$$
+or,
+$$
+1 - \Phi \left( \frac{k'}{\sigma \sqrt{n}} \right ) = \alpha
+$$
+or,
+$$
+k' = \sigma \sqrt{n}\Phi^{-1}(1-\alpha). 
+Thus, for the observed value
+$$
+
+Thus, for the observed value
+$\boldsymbol{x} = (x_1,...,x_n)$ of $\boldsymbol{X} = (X_1,...,X_n)$, the MP level $\alpha$ test rejects $H_0$ in favour of $H_1$ if 
+$$
+\sum_{i=1}^{n}x_i > \sigma \sqrt{n}\Phi^{-1}(1-\alpha) \iff  \bar{x} > \frac\sigm{}{\sqrt{n}}\Phi^{-1}(1-\alpha)
+$$
+
+\end{example}

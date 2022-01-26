@@ -167,7 +167,7 @@
 
 \mdfdefinestyle{mdblackbox}{%
 	skipabove=8pt,
-	linewidth=3pt,
+	linewidth=2pt,
 	rightline=false,
 	leftline=true,
 	topline=false,
@@ -193,7 +193,7 @@ style=thmgreenbox*,name=Theorem,numberwithin=section]{theorem}
 \declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem]{lemma}
 \declaretheorem[style=thmblackbox,name=Proposition,sibling=theorem]{proposition}
 \declaretheorem[style=thmbluebox,name=Corollary,sibling=theorem]{corollary}
-\declaretheorem[style=thmgreenbox,name=Example,sibling=theorem]{example}
+\declaretheorem[style=thmblackbox,name=Example,sibling=theorem]{example}
 \declaretheorem[style=thmredbox,name=Definition,sibling=theorem]{definition}
 
 \newenvironment{moral}{%
@@ -236,4 +236,6 @@ style=thmgreenbox*,name=Theorem,numberwithin=section]{theorem}
 \newpage
 \input{chapter1/section1}
 \input{chapter1/section2}
+\input{chapter1/section3}
+
 \end{document}

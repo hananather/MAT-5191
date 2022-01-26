@@ -8,7 +8,7 @@ In this course we will cover important topics of Mathematical Statistics. This c
 
 In a typical statistical problem our objective is to get information about the distribution $\vocab{P}$ of a random variable $X$ based on $n$ independent observations $X_1,...,X_n$ of $X$. 
 
-\begin{definition}[Random Variable]
+\begin{definition}[Random Sample]
 \vocab{Random variable} is defined 
 $$
 X(S,\PP) \to \SX
@@ -22,5 +22,13 @@ Sample space is just a set of all possible values of a random sample.
 \end{definition}
 In general for simplicity we assume that $(\SX \times \cdots \times \SX) = \RR^n$
 
-A \vocab{hypothesis} is a statement of a population parameter. The two complementary hypothesis in a hypothesis testing problem are called the \textit{null hypothesis} and \textit{alternative hypothesis}.
+A \vocab{hypothesis} is a statement regarding the parameter of the distribution or distribution itself. The two complementary hypothesis in a hypothesis testing problem are called the \textit{null hypothesis} ($H_0$) and \textit{alternative hypothesis} ($H_1$).
+\begin{definition}[Hypothesis test]
+    A hypothesis test is a rule that specifies:
+    \begin{enumerate}[i]
+        \item For which sample values the decision is made to accept $H_0$ as true.
+        \item For which sample values $H_0$ is rejected and $H_1$ is accepted as true. 
+    \end{enumerate}
+\end{definition}
+The subset of the sample space for which $H_0$ will be rejected is called the \textbf{critical region} (or rejection region). The complement of the rejection region is called \textbf{acceptance region}.
 
