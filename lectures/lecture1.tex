@@ -1,5 +1,5 @@
 \begin{abstract}
-    These are course notes for MAT 5196.
+    These are course notes for MAT 5191.
 \end{abstract}
 
 \section{January 11, 2022}
@@ -24,7 +24,15 @@ In general for simplicity we assume that $(\SX \times \cdots \times \SX) = \RR^n
 
 A \vocab{hypothesis} is a statement regarding the parameter of the distribution or distribution itself. The two complementary hypothesis in a hypothesis testing problem are called the \textit{null hypothesis} ($H_0$) and \textit{alternative hypothesis} ($H_1$).
 \begin{definition}[Hypothesis test]
-    A hypothesis test is a rule that specifies:
+    A hypothesis test is a statement regarding the parameter of the distribution or the distribution itself. A \vocab{nonrandomized test function} assigns to each value $\boldsymbol{x} = (x_1,...,x_1)$ of $\boldsymbol{X} = (X_1,...,X_1)$ of the the following decisions:
+    \begin{equation}
+    \phi(\boldsymbol{X}) = 
+    \begin{cases}
+     0 \quad& \text{if }  \boldsymbol{x} \in C \\
+    1 & \text{if} 
+    \end{cases}
+    \end{equation}
+    
     \begin{enumerate}[i]
         \item For which sample values the decision is made to accept $H_0$ as true.
         \item For which sample values $H_0$ is rejected and $H_1$ is accepted as true. 

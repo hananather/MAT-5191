@@ -1,0 +1,59 @@
+\section{January 27, 2022}
+\subsection{UMP tests for composite hypothesis}
+Previous lecture we proved that UMP exists for testing the hypothesis 
+\begin{equation}
+    H_0: \theta \leq \theta_1 
+    \text{ or } \theta \geq \theta_2
+    \text{ vs. } H_1: \theta_1 \leq \theta \leq \theta_2
+\end{equation}
+
+
+if the family of pdf/pmf belong to a certain exponential family with a strictly monotone function $Q(\theta)$. 
+We have also seen that no UMP exists for the hypothesis
+$
+H_0: \theta = \theta_1 \text{ vs }
+H_1: \theta \neq \theta_1
+$. 
+Similarly we run into the same problem if we interchange $H_0$ and $H_1$ in equation (5.1).
+
+\begin{definition}[Unbiased test]
+Let $\boldsymbol{X} = (X_1,...,X_n)$ be a random sample from probability distribution with pdf/pmf $f(x;\theta), \theta \in \Theta \in \RR, k \geq 1$. Then for testing
+$$
+H_0: \theta \in \Theta_0 \text{ vs. }
+H_1: \theta \in \Theta_1
+$$
+at level $\alpha$ a test $\phi$ based on $\boldsymbol{X}$ is said to be \vocab{unbiased} if
+$$
+\EE_{\theta}\phi(\boldsymbol{X}) \leq \alpha \text{ for all } \theta \in \Theta_0
+\text{ and }
+\EE_{\theta}\phi(\boldsymbol{X}) \geq \alpha \text{ for all } \theta \in \Theta_1
+$$
+In other words, a test is \textbf{unbiased} if the probability of \textit{type I error} is at most $\alpha$ and the \textit{power} of the test  is at least $\alpha$. 
+\end{definition}
+
+\begin{definition}[UMPU]
+A test is \vocab{uniformly most powerful unbiased} (UMPU) if it is the UMP within the class of all unbiased tests.
+\end{definition}
+The next condition provides us with conditions for when UMPU exists. 
+
+\begin{theorem}
+et $\boldsymbol{X} = (X_1,...,X_n)$ be a random sample from probability distribution with pdf/pmf $f(x;\theta), \theta \in \Theta \in \RR, k \geq 1$, where $f(x;\theta)$ is given by
+$$
+f(x;\theta) = c(\theta)h(x)e^{Q(\theta)t(x)}, x \in \RR, \theta \in \Theta
+$$
+Then for testing,
+$$  H_0: \theta_1 \leq \theta \leq \theta_2
+    \text{ vs. } H_1:
+    \theta \leq \theta_1 
+    \text{ or } \theta \geq \theta_2
+$$
+at level $\alpha$, there exists a UMPU test which is given by 
+$$
+\phi(\boldsymbol{x}) = 
+    \begin{cases}
+     1 \quad& \text{if } T(\boldsymbol{x}) \leq c_1 \text{ or }  T(\boldsymbol{x}) \geq c_2 \\
+    \gamma & \text{if }  T(\boldsymbol{x}) = c_i, i=1,2, c_1 < c_2 \\
+    0  & \text{otherwise}
+    \end{cases}
+$$
+\end{theorem}

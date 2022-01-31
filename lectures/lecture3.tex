@@ -33,14 +33,21 @@ $$
 $$
 or,
 $$
-k' = \sigma \sqrt{n}\Phi^{-1}(1-\alpha). 
-Thus, for the observed value
-$$
+k' = \sigma \sqrt{n}\Phi^{-1}(1-\alpha).$$ 
 
 Thus, for the observed value
 $\boldsymbol{x} = (x_1,...,x_n)$ of $\boldsymbol{X} = (X_1,...,X_n)$, the MP level $\alpha$ test rejects $H_0$ in favour of $H_1$ if 
 $$
-\sum_{i=1}^{n}x_i > \sigma \sqrt{n}\Phi^{-1}(1-\alpha) \iff  \bar{x} > \frac\sigm{}{\sqrt{n}}\Phi^{-1}(1-\alpha)
+\sum_{i=1}^{n}x_i > \sigma \sqrt{n} \Phi^{-1}(1- \alpha) \iff  \bar{x} > \frac \sigma{\sqrt{n}}\Phi^{-1}(1-\alpha)
 $$
 
 \end{example}
+
+\begin{definition}[p-value]
+A p-value $p(\boldsymbol{X})$ is a test statistic satisfying $0 \leq p(\boldsymbol{x}) \leq 1$ for every sample point $\boldsymbol{x}$.  
+The \vocab{p-value} or observed size is defined by
+$$
+p = p(\boldsymbol{X}) = inf \{ \alpha \in (0,1): \boldsymbol{X} \in C_{\alpha} \}
+$$
+where $C_{\alpha}$ is the critical region of level $\alpha$ test.
+\end{definition}
