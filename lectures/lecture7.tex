@@ -1,0 +1,121 @@
+\section{Feb 1, 2022}
+\subsection{Bayesian tests}
+The Bayesian approach assumes that $\theta$ is a realization of a random variable $\theta$ with prior distribution $\pi$ on $\Theta$. The prior distribution reflects our opinion about the parameter $\theta$. Let $\phi$ be a test for testing $H_0$ versus $H_1$, where $C$ is the critical region, and $A$ is the acceptence region.
+
+\begin{equation}
+    \phi(\boldsymbol{x}) = 
+        \begin{cases}
+         1 & \text{if } \boldsymbol{x} \in C \\
+        0  & \text{if } \boldsymbol{x} \in A
+        \end{cases}
+\end{equation}
+
+Consider the \vocab{loss function}
+
+$$
+L(\theta,\phi) = 
+    \begin{cases}
+     0 & \text{if }  \theta \in \Theta_0 \text{ and } \phi = 0 \text{ or } \theta \in \Theta_1 \text{ and } \phi = 1\\
+     L_1  & \text{if }  \theta \in \Theta_0 \text{ and } \phi = 1 \\
+     L_2 & \text{if }  \theta \in \Theta_1 \text{ and } \phi = 0,
+    \end{cases}
+$$
+where $L_1$ and $L_2$ are some positive constants. The \vocab{risk function} or the expected loss over all values of $\boldsymbol{X}$ is
+\begin{equation}\label{eqn:risk}
+    R(\theta,\phi) = L(\theta, 1)\PP_{\theta}(\bX \in C) + L(\theta, 0)\PP_{\theta}(\bX \in A)
+\end{equation}
+
+A test $\phi$ for which equation \eqref{eqn:risk} is minimized is desirable. Consider the test 
+$$
+H_0: \theta = \theta_0 \textit{ vs. } H_1: \theta = \theta_1
+$$
+where $\Theta_0 = \{\theta_0\}$ and $\Theta_1 = \{\theta_1\}$. Let $\alpha = \PP_{\theta}(\bx \in C)$ (\textit{type I error}). And $\beta = \PP_{\theta_1}(\bx \in C)$. Now we can express the risk function in \eqref{eqn:risk} in the following form:
+
+\begin{equation}\label{eqn:risk2}
+    R(\theta,\phi) = 
+    \begin{cases}
+    L_1\alpha, & \text{ if } \theta =  \theta_0 (\textit{type I error}) \\
+    L_2(1-\beta), & \text{ if }  \theta = \theta_1 (\textit{type II error}) \\
+    \end{cases}
+\end{equation}
+For a prior distribution $\pi$ on $\Theta$,
+
+$$
+p_0 = \pi(\theta = \theta_0), \quad p_1 = \pi(\theta = \theta_1) 
+$$
+The the \vocab{Bayes risk} of $\phi$ with respect to prior $\pi$ is defined by
+$$
+R_{\pi}(\phi) = p_0R(\theta_0,\phi) + p_1R(\theta,\phi)
+$$
+where $R(\theta,\phi)$ is given by \eqref{eqn:risk2}. A test $\phi$ for which the Bayes risk is minimal is called the \vocab{Bayes test} with respect to prior $\pi$. The following theorem is an analogue of the Neyman-Pearson Lemma.
+
+\begin{theorem}\label{BayesLemma}
+    Let $\boldsymbol{X} = (X_1,...,X_n)$ be a random sample from probability distribution with pdf/pmf $f(x;\theta), \theta \in \Theta = \{\theta_0,\theta_1 \} \subseteq \RR^{k}, k \geq 1$.  
+    Let $\pi$ be a prior distribution on $\Theta$ and let
+    $$
+    p_0 = \pi(\theta = \theta_0), \quad p_1 = \pi(\theta = \theta_1) 
+    $$
+    For testing $H_0: \theta = \theta_0 \textit{ vs. } H_1: \theta = \theta_1$,
+    there exists a \term{Bayes test} $\phi_{\pi}$ corresponding to the prior $\pi$ which minimizes the \term{Bayes risk} $R_{\pi}(\phi)$. The test is given by 
+    $$
+    \phi_{\pi}(\bx) = 
+    \begin{cases}
+    1, & \text{if }  f(\bx;\theta_1) > \frac{p_0L_1}{p_1L_1}f(\bx, \theta_0)  \\
+    0, & \text{otherwise}
+    \end{cases}
+    $$
+\end{theorem}
+As we can see in \ref{BayesLemma}, the Bayes test $\phi_{\pi}$, is a likelihood ratio test and is the most powerful test for testing $H_0: \theta = \theta_0 \textit{ vs. } H_1: \theta = \theta_1$ at level $\PP_{\theta_0}(\bX \in C),$ where the critical region $C$ is given by
+$$
+C = \left\{ 
+\bx \in R^n : f(\bx;\theta_1) > \frac{p_0L_1}{p_1L_1}f(\bx, \theta_0)
+\right\},
+$$
+which follows from the Neyman-Pearson Lemma.
+\subsection{Minimax tests}
+Suppose $\boldsymbol{X} = (X_1,...,X_n)$ be a random sample from probability distribution with pdf/pmf $f(x;\theta), \theta \in \Theta = \subseteq \RR^{k}, k \geq 1$ and consider testing $H_0: \theta \in \Theta_0 \textit{ vs. } H_1: \theta \in \Theta_1$. And let $L(\theta, \phi)$ be the same loss function as before, 
+$$
+L(\theta,\phi) = 
+    \begin{cases}
+     0 & \text{if }  \theta \in \Theta_0 \text{ and } \phi = 0 \text{ or } \theta \in \Theta_1 \text{ and } \phi = 1\\
+     L_1  & \text{if }  \theta \in \Theta_0 \text{ and } \phi = 1 \\
+     L_2 & \text{if }  \theta \in \Theta_1 \text{ and } \phi = 0,
+    \end{cases}
+$$
+Consider the risk same risk function \eqref{eqn:risk}. 
+
+\begin{definition}[Minimax test]
+    The test $\phi$ for testing 
+    $H_0: \theta = \theta_0 \textit{ vs. } H_1: \theta = \theta_1$ 
+    is called the \vocab{minimax test} if for any other test $\phi^*$ one has 
+    $$
+    \text{max}(R(\theta_0,\phi),R(\theta_1,\phi)) \leq 
+    \text{max}(R(\theta_0,\phi^*),R(\theta_1,\phi^*))
+    $$
+\end{definition}
+We have the following result regarding the existence of minimax test,
+
+\begin{theorem}[Existence of Minimax test]
+    Let $\boldsymbol{X} = (X_1,...,X_n)$ be a random sample from probability distribution with pdf/pmf $f(x;\theta), \theta \in \Theta = \{\theta_0,\theta_1 \} \subseteq \RR^{k}, k \geq 1$.
+    Consider testing $H_0: \theta = \theta_0 \textit{ vs. } H_1: \theta = \theta_1$ at level $\alpha$. 
+    Define the subset $C$ of the sample space $\RR^n$ as follows
+    $$
+    C = \left\{ 
+    \bx \in R^n : f(\bx;\theta_1) > cf(\bx, \theta_0)
+    \right\}
+    $$
+    and assume there is a determination of the constant $c$ such that 
+    $$
+    R(\theta_0,\phi) = R(\theta_1,\phi) \quad \text{or equivalently,} \quad
+    L_1\PP_{\theta_0}(\bX \in C) = L_2\PP_{\theta_1}(\bX \in A).
+    $$
+    Then the test 
+    $$
+    \phi(\bx)
+    \begin{cases}
+    1 & \text{ if } \bx \text{ in } C \\
+    0 & \text{otherwise}
+    \end{cases}
+    $$
+    is minimax test.
+\end{theorem}
