@@ -1,15 +1,16 @@
 \begin{abstract}
-    These are course notes for MAT 5191.
+    These are my course notes for MAT 5191. These notes are my interpretation of the content covered in class. 
+    They are by no means comprehensive; my primary aim was to distill the important topics discussed in each lecture. 
 \end{abstract}
 
 \section{January 11, 2022}
 \subsection{Introduction}
 In this course we will cover important topics of Mathematical Statistics. This course covers methods of hypothesis testing thoery and interval estimation in the context of \textbf{Parametric Statistics} and \textbf{Classical Non parametric Statistics}.
 
-In a typical statistical problem our objective is to get information about the distribution $\vocab{P}$ of a random variable $X$ based on $n$ independent observations $X_1,...,X_n$ of $X$. 
+In a typical statistical problem our objective is to get information about the distribution $\vocab{P}$ of a random variable $X$ based on $n$ independent observations $X_1,...,X_n$ of $\bX$. 
 
 \begin{definition}[Random Sample]
-\vocab{Random variable} is defined 
+Random variable is a function defined as
 $$
 X(S,\PP) \to \SX
 $$
@@ -19,17 +20,27 @@ $$
 S \times \cdots \times S \to \underbrace{(\SX \times \cdots \times \SX)}_\text{sample space}
 $$
 Sample space is just a set of all possible values of a random sample.
-\end{definition}
-In general for simplicity we assume that $(\SX \times \cdots \times \SX) = \RR^n$
+In general for simplicity we assume that $(\SX \times \cdots \times \SX) = \RR^n$.
 
-A \vocab{hypothesis} is a statement regarding the parameter of the distribution or distribution itself. The two complementary hypothesis in a hypothesis testing problem are called the \textit{null hypothesis} ($H_0$) and \textit{alternative hypothesis} ($H_1$).
-\begin{definition}[Hypothesis test]
+\end{definition}
+
+A \vocab{hypothesis} is a statement regarding the parameter of the distribution or distribution itself. The two complementary hypothesis in a hypothesis testing problem are called the \term{null hypothesis} ($H_0$) and \term{alternative hypothesis} ($H_1$).
+
+\begin{example}
+We may consider testing the hypothesis of symmetry of a cdf $F(x)$ about zero:
+$$
+H_0: F_1(x) = F_2(x), \quad \text{for all } x \in \RR,
+$$
+Based on two independent samples $X_1,..,X_n$ and $Y_1,...,Y_m$ from continuous distributions with cdf's $F_1$ and $F_2$, respectively.
+\end{example}
+
+\begin{definition}[Hypothesis test]\label{hypothesis test}
     A hypothesis test is a statement regarding the parameter of the distribution or the distribution itself. A \vocab{nonrandomized test function} assigns to each value $\boldsymbol{x} = (x_1,...,x_1)$ of $\boldsymbol{X} = (X_1,...,X_1)$ of the the following decisions:
     \begin{equation}
-    \phi(\boldsymbol{X}) = 
-    \begin{cases}
-     0 \quad& \text{if }  \boldsymbol{x} \in C \\
-    1 & \text{if} 
+        \phi(\boldsymbol{X}) = 
+        \begin{cases}
+            0 \quad& \text{if }  \boldsymbol{x} \in C \\
+            1 & \text{if }  \bx \in A,
     \end{cases}
     \end{equation}
     
@@ -40,3 +51,43 @@ A \vocab{hypothesis} is a statement regarding the parameter of the distribution 
 \end{definition}
 The subset of the sample space for which $H_0$ will be rejected is called the \textbf{critical region} (or rejection region). The complement of the rejection region is called \textbf{acceptance region}.
 
+
+In hypothesis testing we can commit two types of errors: reject $H_0$ when $H_0$ is true (\term{type I error}) or to accept $H_0$ when $H_0$ is actually false (\term{type II error}).
+
+To minimize the probability of both type I and type II error we impose the following asymmetry between both types of error: we select a small number $\alpha \in (0,1)$, called \vocab{level of significance}, and impose the condition that
+$$
+\PP(\text{type I error}) = \PP_{\theta}(X \in C) \leq \alpha,  \quad \text{for all } \theta \in \Theta_{0}.
+$$
+Subject to this condition, we minimize,
+$$
+\PP(\text{type II error}) = \PP_{\theta}(X \in A),  \quad \text{for all } \theta \in \Theta_{1},
+$$
+or equivalently we maximize
+\begin{equation}\label{power}
+    1- \PP(\text{type II error}) = \PP_{\theta}(X \in A),  \quad \text{for all } \theta \in \Theta_{1}.
+\end{equation}
+The quantity,
+$$
+\underset{\theta \in \Theta_{0}}{\text{sup}} \PP(\bX \in C)
+$$
+is called the \term{size} of the test with critical region $C$. With this approach the decision maker believes that the consequence of wrongly rejecting $H_0$ is more severe than the decision of wrongly accepting it, and therefore the size of the test is kept at a small level. The probability in \ref{power} is called the \vocab{power} of the test against the alternative. 
+\begin{definition}[Power Function]
+    Considered as a function of $\theta$ for all $\theta \in \Theta$, the probability
+    $$
+    \beta(\theta) = \PP_{\theta}(\bX \in C), \quad \theta \in \Theta,
+    $$
+    is called the \vocab{power function} of the test with critical region $C$.
+\end{definition}
+We note that based on \ref{hypothesis test}, for non-randomized test $\phi$ with critical region $C$, we have
+$$
+\beta_{\phi}(\theta) = \PP_{\theta}(\bX \in C) =
+1 \cdot \PP_{\theta}(\bX \in C) + 0\cdot \PP_{\theta}(\bX \in A)
+= \EE_{\theta}[\phi(\bX)]
+$$
+\begin{definition}[Confidence set]
+    Let $\bX = (X_1,...,X_n)$ be a random sample from a distribution 
+    $\boldsymbol{P} \in \SP = \{ \boldsymbol{P}_{\theta}: \theta \in \Theta \subseteq \RR^{k} \}$. A random set $S(\bX)$ is said to constitute a \vocab{confidence set} for $\theta$ of level $(1-\alpha)$ if
+    $$
+    \boldsymbol{P}_{\theta}(\theta \in S(\boldsymbol{X})) \geq 1-\alpha, \quad \text{for all } \theta \in \Theta
+    $$
+\end{definition}
