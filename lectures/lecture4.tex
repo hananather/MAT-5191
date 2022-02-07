@@ -1,1 +1,57 @@
 \section{January 20, 2022}
+\subsection{UMP tests: distributions with monotone likelihood ratio}
+\begin{itemize}
+    \item The cases that both null and alternative hypothesis are simple is mainly a theoretical situation. In most practical applications hypothesis are composite.
+    \item Suppose that $\bX = (X_1,...,X_n)$ is a random sample from a probability distribution $\boldsymbol{P}_{\theta}$, where $\theta \in \Theta \subseteq \RR$, that is  $\theta$ is a \term{real-valued parameter} and suppose we wish to test
+    $$
+    H_0: \theta \leq \theta_0 \textit{ vs. } H_1:\theta > \theta_0,
+    $$
+    where $\theta_0$ is a given number from the parameter space. 
+    
+\end{itemize}
+The MP test depends on the value of $\theta \in (\theta_0,\infty) =: \Theta_1$, and in general, is then not UMP.
+
+\begin{definition}
+    A family of pdf's/pmf's 
+    $\{ f(x;\theta): \theta \in \Theta \subseteq \RR \}$
+    is said to be \vocab{monotone likelihood ratio} (MLR) in the statistic $T(\bX)$ if there exists a function $T:\RR^n \to \RR$ such that whenever $\theta_1, \theta_2 \Theta$ with $\theta_1 < \theta_2, \cfrac{f(\bx;\theta_2)}{f(\bx;\theta_1)}$ is a nondecreasing function of $T(\bX)$ on the set 
+    $\{
+    \bx \in \RR^n: f(\bx;\theta_1)>0 \text{ or } f(\bx;\theta_2)>0
+    \}$
+    
+\end{definition}
+
+    Let $\bX = (X_1,...,X_n)$ be a random sample from a probability distribution $\boldsymbol{P_{\theta}}$ with pdf/pmf $f(x;\theta), \theta \in \Theta \subseteq \RR,$ and let the family $\{f(x;\theta): \theta \in \Theta\}$ have the MLR in $T(\boldsymbol{X})$.
+    \begin{enumerate}[(1)]
+        \item For testing $H_0: \theta \leq \theta_0$ vs. $H_1:\theta > \theta_0$, there exists a UMP test level of $\alpha$, which is given by
+        \begin{equation}\label{MLR}
+            \phi(\bx) = 
+            \begin{cases}
+                1, & \text{if } T(\bx) > k \\
+                \gamma, & \text{if } T(\bx) =  k \\
+                0 & \text{if } T(\bx) < k, \\
+            \end{cases}
+        \end{equation}
+        where $k$ and $\gamma \in (0,1)$ are determined by 
+        \begin{equation}\label{MLR condition}
+            \EE_{\theta_0}[\phi(\bX)] = \alpha
+        \end{equation}
+        \item The power function $\beta(\theta) = \EE_{\theta_0}[\phi(\bX)]$, of this test is \term{strictly increasing} for all points $\theta$ for with $0< \beta(\theta) < 1$.
+        \item For all $\theta' \in \Theta$, the test determined by \ref{MLR} and \ref{MLR condition} is UMP for testing $H_0: \theta \leq \theta'$ vs. $H_1: \theta > \theta$ at level $\alpha = \beta(\theta').$
+        \item For any $\theta < \theta_0$, the test determined by \ref{MLR} and \ref{MLR condition} minimizes $\beta(\theta)$
+    \end{enumerate}
+
+By interchanging the inequalities we obtain a solution to the dual problem of testing $H_0: \theta \geq \theta_0$ vs. $H_1:\theta < \theta_0$ by the following level $\alpha$ test 
+    \begin{equation}
+        \phi(\bx) = 
+        \begin{cases}
+            1, & \text{if } T(\bx) < k \\
+            \gamma, & \text{if } T(\bx) =  k \\
+            0, & \text{if } T(\bx) > k, \\
+        \end{cases}
+    \end{equation}
+where $k$ and $\gamma$ are determined by 
+\begin{equation}
+    \EE_{\theta_0}\phi(\bX) = \alpha 
+\end{equation}
+

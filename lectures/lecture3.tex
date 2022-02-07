@@ -1,5 +1,5 @@
 \section{January 18, 2022}
-\subsection{Examples of MP test}
+\subsection{Examples of Most Powerful tests}
 \begin{example}
 Let $X_1,..,X_n$ be a random sample from normal $N(\mu, \sigma^2)$ distribution, where $\mu$ is unknown and $\sigma^2$ is known. If we test
 $$
@@ -42,6 +42,7 @@ $$
 $$
 
 \end{example}
+\subsection{P-values}
 
 \begin{definition}[p-value]
 A p-value $p(\boldsymbol{X})$ is a test statistic satisfying $0 \leq p(\boldsymbol{x}) \leq 1$ for every sample point $\boldsymbol{x}$.  
@@ -51,3 +52,7 @@ p = p(\boldsymbol{X}) = inf \{ \alpha \in (0,1): \boldsymbol{X} \in C_{\alpha} \
 $$
 where $C_{\alpha}$ is the critical region of level $\alpha$ test.
 \end{definition}
+
+\begin{lemma}
+Let $\bX = (X_1,..,X_n)$ be a random sample of probability distribution $\PP_{\theta}$, $\theta \in \Theta$. Consider $H_0: \theta \in \Theta_{0}$ vs. $H_1: \theta \in \Theta$
+\end{lemma}
